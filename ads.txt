@@ -1,0 +1,3 @@
+# Once your Google AdSense account is approved, replace this file's contents
+# with the exact snippet Google gives you, in the form:
+# google.com, pub-XXXXXXXXXXXXXXXX, DIRECT, f08c47fec0942fa0

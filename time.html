@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Time in Maryland Now — Current Local Time &amp; Time Zone</title>
+<meta name="description" content="The current time in Maryland right now, including Baltimore, plus Maryland's time zone (Eastern Time) and daylight saving info." />
+<link rel="canonical" href="/time" />
+<link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+
+  <header class="sitehead">
+    <div class="sitehead-inner">
+      <a class="brand-link" href="/"><span aria-hidden="true">🌤️</span> Maryland Weather &amp; Guide</a>
+      <nav aria-label="Primary">
+        <a href="/weather">Weather</a>
+        <a href="/maryland-map">Map</a>
+        <a href="/time">Time</a>
+        <a href="/ocean-city-hotels">OC Hotels</a>
+        <a href="/ocean-city-boardwalk">Boardwalk</a>
+        <a href="/queenstown-outlets">Outlets</a>
+        <a href="/maryland-government-jobs">Jobs</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="page" style="max-width:640px;">
+    <p class="breadcrumb"><a href="/">Home</a> / Time</p>
+    <h1 style="text-align:center;">Time in Maryland Now</h1>
+
+    <section class="current-card clock-display" aria-live="polite">
+      <div class="clock-time" id="clock-time">--:--:--</div>
+      <div class="clock-date" id="clock-date">Loading…</div>
+      <div class="clock-tz" id="clock-tz"></div>
+    </section>
+  </div>
+
+  <div class="ad-slot"><div class="ad-slot-inner">Ad space</div></div>
+
+  <article class="content">
+    <h2>What time zone is Maryland in?</h2>
+    <p>All of Maryland — Baltimore, Annapolis, Ocean City, and every city in between — uses
+       <strong>Eastern Time (ET)</strong>: Eastern Standard Time (EST, UTC−5) in winter and Eastern Daylight
+       Time (EDT, UTC−4) from mid-March to early November. Maryland observes daylight saving time along with
+       the rest of the Eastern Time zone, so clocks move forward one hour in spring and back one hour in fall.</p>
+
+    <h2>Daylight saving time in Maryland</h2>
+    <p>Like most of the United States, Maryland springs forward on the second Sunday in March and falls back
+       on the first Sunday in November. During EDT (spring through fall), Maryland is 4 hours behind UTC;
+       during EST (late fall through winter), it's 5 hours behind UTC.</p>
+
+    <div class="table-wrap">
+      <table class="data-table">
+        <tbody>
+          <tr><th>Standard time (winter)</th><td>Eastern Standard Time — UTC−5</td></tr>
+          <tr><th>Daylight time (spring–fall)</th><td>Eastern Daylight Time — UTC−4</td></tr>
+          <tr><th>Same time zone as</th><td>New York, Washington D.C., Philadelphia, Atlanta, Miami</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p>Planning around the forecast too? Check <a href="/weather">live weather for any Maryland city</a>.</p>
+  </article>
+
+  <footer class="sitefoot">
+    <div class="sitefoot-inner">
+      <nav aria-label="Footer">
+        <a href="/about">About</a>
+        <a href="/privacy">Privacy Policy</a>
+        <a href="/contact">Contact</a>
+      </nav>
+      <p>&copy; <span id="copyright-year"></span> Maryland Weather &amp; Guide. Not affiliated with the State of Maryland.</p>
+    </div>
+  </footer>
+
+  <script>
+    function tick() {
+      var now = new Date();
+      var timeStr = now.toLocaleTimeString("en-US", { timeZone: "America/New_York", hour12: true });
+      var dateStr = now.toLocaleDateString("en-US", { timeZone: "America/New_York", weekday: "long", year: "numeric", month: "long", day: "numeric" });
+      var parts = new Intl.DateTimeFormat("en-US", { timeZone: "America/New_York", timeZoneName: "long" }).formatToParts(now);
+      var tzName = (parts.find(function (p) { return p.type === "timeZoneName"; }) || {}).value || "Eastern Time";
+      document.getElementById("clock-time").textContent = timeStr;
+      document.getElementById("clock-date").textContent = dateStr;
+      document.getElementById("clock-tz").textContent = tzName + " · America/New_York";
+    }
+    tick();
+    setInterval(tick, 1000);
+  </script>
+  <script src="/site.js"></script>
+</body>
+</html>
