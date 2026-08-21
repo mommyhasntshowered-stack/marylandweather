@@ -404,6 +404,90 @@ table.data-table th { color: var(--muted); font-weight: 600; font-size: 12px; }
   gap: 14px;
   margin: 8px 0 0;
 }
+
+.faq-section {
+  border-top: 1px solid var(--border);
+  background: rgba(42, 120, 214, 0.02);
+  margin-top: 20px;
+}
+.faq-wrap {
+  padding-top: 28px;
+  padding-bottom: 20px;
+}
+.faq-list {
+  display: grid;
+  gap: 12px;
+}
+.faq-list details {
+  background: var(--surface-1);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 0 18px;
+}
+.faq-list summary {
+  cursor: pointer;
+  list-style: none;
+  font-weight: 600;
+  padding: 16px 0;
+  color: var(--text-primary);
+}
+.faq-list summary::-webkit-details-marker { display: none; }
+.faq-list summary::after {
+  content: "+";
+  float: right;
+  font-size: 22px;
+  line-height: 1;
+  color: var(--series-1);
+}
+.faq-list details[open] summary::after {
+  content: "–";
+}
+.faq-list details p {
+  margin: 0 0 16px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.faq-list-inline {
+  margin-top: 26px;
+}
+.faq-list-inline h2 {
+  margin: 0 0 12px;
+  font-size: 20px;
+}
+
+.booking-cta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  background: var(--surface-1);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 18px 20px;
+  margin: 0 0 22px;
+}
+.booking-cta .eyebrow {
+  margin: 0 0 6px;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.booking-cta h2 {
+  margin: 0;
+  font-size: 18px;
+  line-height: 1.35;
+}
+.booking-cta .btn {
+  white-space: nowrap;
+}
+@media (max-width: 640px) {
+  .booking-cta {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
 .hub-tile {
   display: block;
   background: var(--surface-1);
